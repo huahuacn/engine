@@ -1,0 +1,586 @@
+[gd_scene load_steps=26 format=3 uid="uid://dxko355fkpwmk"]
+
+[ext_resource type="Script" path="res://framework/scripts/launch/node/login.gd" id="1_kcqpe"]
+[ext_resource type="AudioStream" uid="uid://bvbw65l1ymwxq" path="res://framework/statics/musics/launch.wav" id="2_pmerm"]
+[ext_resource type="Texture2D" uid="uid://cpkcqh4s6xd2k" path="res://framework/statics/scenes/common/logo.png" id="3_t5gy1"]
+[ext_resource type="Texture2D" uid="uid://b74fr27wg2oue" path="res://framework/statics/scenes/launch/node/login/login_main.png" id="3_xw66n"]
+[ext_resource type="Texture2D" uid="uid://kxf8nvs36mvn" path="res://framework/statics/scenes/launch/node/login/submit_button_0.png" id="4_w51df"]
+[ext_resource type="Texture2D" uid="uid://dfc5evdt1ebqt" path="res://framework/statics/scenes/launch/node/login/submit_button_1.png" id="5_vvya0"]
+[ext_resource type="Texture2D" uid="uid://bbi2wnoln51bu" path="res://framework/statics/scenes/launch/node/login/submit_button_2.png" id="6_m3wdk"]
+[ext_resource type="Texture2D" uid="uid://dfuu7jl1rnkiy" path="res://framework/statics/scenes/launch/node/login/register_button_0.png" id="7_8b2j4"]
+[ext_resource type="Texture2D" uid="uid://bdruj15cgblxy" path="res://framework/statics/scenes/launch/node/login/register_button_1.png" id="8_c0e4j"]
+[ext_resource type="Texture2D" uid="uid://ci7qksril0tlt" path="res://framework/statics/scenes/launch/node/login/register_button_2.png" id="9_uvt3x"]
+[ext_resource type="Texture2D" uid="uid://mfphgkd64man" path="res://framework/statics/scenes/launch/node/login/change_password_button_0.png" id="10_8ttj7"]
+[ext_resource type="Texture2D" uid="uid://c4isoikb35lnr" path="res://framework/statics/scenes/launch/node/login/change_password_button_1.png" id="11_seu6x"]
+[ext_resource type="Texture2D" uid="uid://du104g43wfkim" path="res://framework/statics/scenes/launch/node/login/change_password_button_2.png" id="12_o60j6"]
+[ext_resource type="Texture2D" uid="uid://kc6up4uuesqt" path="res://framework/statics/scenes/launch/node/login/change_password.png" id="13_2imjr"]
+[ext_resource type="FontFile" uid="uid://b8ippc7k3ew6o" path="res://framework/statics/fonts/msyh.ttc" id="14_ydn2y"]
+[ext_resource type="Texture2D" uid="uid://biyxtvnjjjods" path="res://framework/statics/scenes/launch/node/login/confirm_button_0.png" id="15_8x3xi"]
+[ext_resource type="Texture2D" uid="uid://cnh15c0dekpik" path="res://framework/statics/scenes/launch/node/login/confirm_button_1.png" id="16_h5tef"]
+[ext_resource type="Texture2D" uid="uid://cgghetk7vy3kk" path="res://framework/statics/scenes/launch/node/login/confirm_button_2.png" id="17_aq7dd"]
+[ext_resource type="Texture2D" uid="uid://dkotwyjkrm2xn" path="res://framework/statics/scenes/launch/node/login/cancel_button_0.png" id="18_v71i7"]
+[ext_resource type="Texture2D" uid="uid://bmllbe06r8283" path="res://framework/statics/scenes/launch/node/login/cancel_button_1.png" id="19_8pqkk"]
+[ext_resource type="Texture2D" uid="uid://dst2y6mrjudl5" path="res://framework/statics/scenes/launch/node/login/register.png" id="20_e3h1n"]
+[ext_resource type="Texture2D" uid="uid://cu1upo5o7ne2c" path="res://framework/statics/scenes/launch/node/login/cancel_button_2.png" id="20_ydat7"]
+[ext_resource type="Texture2D" uid="uid://bdf64oqc83b8q" path="res://framework/statics/scenes/common/adolescent_icon.png" id="22_iuwnv"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3msj6"]
+color = Color(0, 0, 0, 0)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ofu5q"]
+color = Color(0, 0, 0, 0)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 0
+
+[node name="Login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kcqpe")
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_pmerm")
+volume_db = -20.0
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.5
+offset_top = -328.5
+offset_right = 200.5
+offset_bottom = 108.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_t5gy1")
+
+[node name="Main" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = 11.5
+offset_right = 281.0
+offset_bottom = 266.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_xw66n")
+
+[node name="EmailInput" type="LineEdit" parent="Main"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 46.0
+offset_right = 385.0
+offset_bottom = 75.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请输入登录邮箱"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+
+[node name="PasswordInput" type="LineEdit" parent="Main"]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 95.0
+offset_right = 386.0
+offset_bottom = 124.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_ofu5q")
+placeholder_text = "请输入登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+secret = true
+
+[node name="SubmitButton" type="TextureButton" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = 16.5
+offset_right = 110.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+texture_normal = ExtResource("4_w51df")
+texture_pressed = ExtResource("5_vvya0")
+texture_hover = ExtResource("6_m3wdk")
+texture_disabled = ExtResource("4_w51df")
+
+[node name="RegisterButton" type="TextureButton" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -161.0
+offset_top = 78.5
+offset_right = -39.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("7_8b2j4")
+texture_pressed = ExtResource("8_c0e4j")
+texture_hover = ExtResource("9_uvt3x")
+
+[node name="ChangePasswordButton" type="TextureButton" parent="Main"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 39.0
+offset_top = 78.5
+offset_right = 161.0
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_8ttj7")
+texture_pressed = ExtResource("11_seu6x")
+texture_hover = ExtResource("12_o60j6")
+
+[node name="Register" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="TextureRect" parent="Register"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.5
+offset_top = -191.5
+offset_right = 281.5
+offset_bottom = 191.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_e3h1n")
+
+[node name="AccountInput" type="LineEdit" parent="Register/Box"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 60.0
+offset_right = 294.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请输入登录邮箱"
+max_length = 50
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+
+[node name="PasswordInput" type="LineEdit" parent="Register/Box"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 90.0
+offset_right = 294.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请输入登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+secret = true
+
+[node name="ConfirmPasswordInput" type="LineEdit" parent="Register/Box"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 120.0
+offset_right = 294.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请再次输入登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+secret = true
+
+[node name="NameInput" type="LineEdit" parent="Register/Box"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 163.0
+offset_right = 294.0
+offset_bottom = 188.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请输入真实姓名"
+max_length = 6
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+
+[node name="NumberInput" type="LineEdit" parent="Register/Box"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 193.0
+offset_right = 294.0
+offset_bottom = 218.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请输入身份证号码"
+max_length = 20
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+
+[node name="QuestionAInput" type="LineEdit" parent="Register/Box"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 245.0
+offset_right = 294.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请设置问题一"
+max_length = 24
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+
+[node name="AnswerAInput" type="LineEdit" parent="Register/Box"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 275.0
+offset_right = 294.0
+offset_bottom = 300.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请设置问题答案"
+max_length = 24
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+
+[node name="QuestionBInput" type="LineEdit" parent="Register/Box"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 305.0
+offset_right = 294.0
+offset_bottom = 330.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请设置问题二"
+max_length = 24
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+
+[node name="AnswerBInput" type="LineEdit" parent="Register/Box"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 335.0
+offset_right = 294.0
+offset_bottom = 360.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请设置问题答案"
+max_length = 24
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+
+[node name="ConfirmButton" type="TextureButton" parent="Register/Box"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 20.0
+offset_top = 141.5
+offset_right = 104.0
+offset_bottom = 170.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_8x3xi")
+texture_pressed = ExtResource("16_h5tef")
+texture_hover = ExtResource("17_aq7dd")
+texture_disabled = ExtResource("15_8x3xi")
+
+[node name="CancelButton" type="TextureButton" parent="Register/Box"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 180.0
+offset_top = 141.5
+offset_right = 264.0
+offset_bottom = 170.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("18_v71i7")
+texture_pressed = ExtResource("19_8pqkk")
+texture_hover = ExtResource("20_ydat7")
+
+[node name="ChangePassword" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Box" type="TextureRect" parent="ChangePassword"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.5
+offset_top = -124.5
+offset_right = 185.5
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_2imjr")
+
+[node name="AccountInput" type="LineEdit" parent="ChangePassword/Box"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 60.0
+offset_right = 323.0
+offset_bottom = 85.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请输入登录邮箱"
+max_length = 50
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+
+[node name="PasswordInput" type="LineEdit" parent="ChangePassword/Box"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 90.0
+offset_right = 323.0
+offset_bottom = 115.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请输入登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+secret = true
+
+[node name="NewPasswordInput" type="LineEdit" parent="ChangePassword/Box"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 120.0
+offset_right = 323.0
+offset_bottom = 145.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请输入新的登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+secret = true
+
+[node name="ConfirmNewPasswordInput" type="LineEdit" parent="ChangePassword/Box"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 150.0
+offset_right = 323.0
+offset_bottom = 175.0
+theme_override_fonts/font = ExtResource("14_ydn2y")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/focus = SubResource("StyleBoxLine_3msj6")
+placeholder_text = "请再次输入新的登录密码"
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+flat = true
+caret_blink = true
+secret = true
+
+[node name="ConfirmButton" type="TextureButton" parent="ChangePassword/Box"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = 69.0
+offset_right = 37.5
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_8x3xi")
+texture_pressed = ExtResource("16_h5tef")
+texture_hover = ExtResource("17_aq7dd")
+texture_disabled = ExtResource("15_8x3xi")
+metadata/type = "change_password"
+
+[node name="CancelButton" type="TextureButton" parent="ChangePassword/Box"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.5
+offset_top = 69.0
+offset_right = 137.5
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("18_v71i7")
+texture_pressed = ExtResource("19_8pqkk")
+texture_hover = ExtResource("20_ydat7")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.0
+offset_top = 19.0
+offset_right = 29.0
+offset_bottom = 145.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_iuwnv")
+
+[connection signal="finished" from="Sound" to="." method="_on_sound_finished"]
+[connection signal="pressed" from="Main/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="Main/RegisterButton" to="." method="_on_register_button_pressed"]
+[connection signal="pressed" from="Main/ChangePasswordButton" to="." method="_on_change_password_button_pressed"]
+[connection signal="pressed" from="Register/Box/ConfirmButton" to="." method="_on_confirm_button_pressed" binds= ["register"]]
+[connection signal="pressed" from="Register/Box/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="ChangePassword/Box/ConfirmButton" to="." method="_on_confirm_button_pressed" binds= ["change_password"]]
+[connection signal="pressed" from="ChangePassword/Box/CancelButton" to="." method="_on_cancel_button_pressed"]

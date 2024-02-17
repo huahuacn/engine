@@ -1,0 +1,205 @@
+[gd_scene load_steps=16 format=3 uid="uid://7cs7bpp5xd08"]
+
+[ext_resource type="Script" path="res://framework/scripts/world/player/player.gd" id="1_oy6e2"]
+[ext_resource type="Script" path="res://framework/scripts/world/player/state/machine.gd" id="6_lii5o"]
+[ext_resource type="Script" path="res://framework/scripts/world/player/state/action/stand.gd" id="7_x8d33"]
+[ext_resource type="Script" path="res://framework/scripts/world/player/state/action/walking.gd" id="8_sojnw"]
+[ext_resource type="Script" path="res://framework/scripts/world/player/state/action/running.gd" id="9_obgmt"]
+[ext_resource type="Script" path="res://framework/scripts/world/player/state/action/attack.gd" id="10_2qyix"]
+[ext_resource type="Script" path="res://framework/scripts/world/player/state/action/attack_stand.gd" id="11_dbf7h"]
+[ext_resource type="Script" path="res://framework/scripts/world/player/state/action/pickup.gd" id="12_ew5qw"]
+[ext_resource type="Script" path="res://framework/scripts/world/player/state/action/launch.gd" id="13_oh8rc"]
+[ext_resource type="FontFile" uid="uid://b8ippc7k3ew6o" path="res://framework/statics/fonts/msyh.ttc" id="130_bdh52"]
+[ext_resource type="Texture2D" uid="uid://bxfbiaovww685" path="res://framework/statics/scenes/world/player/progress/player_header_background.png" id="131_cgt7i"]
+[ext_resource type="Texture2D" uid="uid://dlru5palr0lg1" path="res://framework/statics/scenes/world/player/progress/player_header_health.png" id="132_cwbv4"]
+[ext_resource type="Texture2D" uid="uid://dj7denlyryk2x" path="res://framework/statics/scenes/world/player/progress/player_header_magic.png" id="133_1ktf2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8bkoj"]
+height = 20.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_cnw4t"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:player_angle")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:player_action")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_oy6e2")
+
+[node name="RigidBody" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_8bkoj")
+
+[node name="Father" type="Control" parent="."]
+texture_filter = 3
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Body" type="Control" parent="Father"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WeaponIndex" type="Control" parent="Father/Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WingIndex" type="Control" parent="Father/Body"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClotheBox" type="Control" parent="Father/Body"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WeaponBox" type="Control" parent="Father/Body"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WingBox" type="Control" parent="Father/Body"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Header" type="Control" parent="Father"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -69.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LifeValue" type="Label" parent="Father/Header"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -19.5
+offset_right = 23.5
+offset_bottom = -6.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.560784)
+theme_override_fonts/font = ExtResource("130_bdh52")
+theme_override_font_sizes/font_size = 9
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Life" type="TextureProgressBar" parent="Father/Header"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -7.0
+offset_right = 16.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_under = ExtResource("131_cgt7i")
+texture_progress = ExtResource("132_cwbv4")
+
+[node name="Magic" type="TextureProgressBar" parent="Father/Header"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -2.0
+offset_right = 16.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_under = ExtResource("131_cgt7i")
+texture_progress = ExtResource("133_1ktf2")
+
+[node name="NickName" type="Label" parent="Father"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -38.5
+offset_right = 30.0
+offset_bottom = -15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("130_bdh52")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Camera" type="Camera2D" parent="."]
+offset = Vector2(0, 40)
+
+[node name="StateMachine" type="Node2D" parent="."]
+script = ExtResource("6_lii5o")
+
+[node name="Stand" type="Node2D" parent="StateMachine"]
+script = ExtResource("7_x8d33")
+
+[node name="Walking" type="Node2D" parent="StateMachine"]
+script = ExtResource("8_sojnw")
+
+[node name="Running" type="Node2D" parent="StateMachine"]
+script = ExtResource("9_obgmt")
+
+[node name="Attack" type="Node2D" parent="StateMachine"]
+script = ExtResource("10_2qyix")
+
+[node name="AttackStand" type="Node2D" parent="StateMachine"]
+script = ExtResource("11_dbf7h")
+
+[node name="Pickup" type="Node2D" parent="StateMachine"]
+script = ExtResource("12_ew5qw")
+
+[node name="Launch" type="Node2D" parent="StateMachine"]
+script = ExtResource("13_oh8rc")
+
+[node name="Multiplayer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_cnw4t")

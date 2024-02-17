@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://sy05ev3urdih"]
+
+[ext_resource type="Script" path="res://framework/scripts/launch/launch.gd" id="1_tw44y"]
+[ext_resource type="Texture2D" uid="uid://dmu4swbbk57va" path="res://framework/statics/scenes/launch/launch.jpeg" id="3_xcjg8"]
+[ext_resource type="PackedScene" uid="uid://dxko355fkpwmk" path="res://framework/scenes/launch/node/login.tscn" id="4_c4kig"]
+[ext_resource type="PackedScene" uid="uid://mnolno0phv7x" path="res://framework/scenes/launch/node/server.tscn" id="5_fde8w"]
+[ext_resource type="PackedScene" uid="uid://dwi6nplfjjxtu" path="res://framework/scenes/launch/node/role.tscn" id="5_pan11"]
+[ext_resource type="PackedScene" uid="uid://cku4qinwl4ji1" path="res://framework/scenes/launch/node/loading.tscn" id="6_08m3p"]
+[ext_resource type="Texture2D" uid="uid://dxqu3iptq5rck" path="res://framework/statics/scenes/launch/dialog/message_background.png" id="7_jv0ps"]
+[ext_resource type="FontFile" uid="uid://b8ippc7k3ew6o" path="res://framework/statics/fonts/msyh.ttc" id="8_npw82"]
+
+[node name="Launch" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tw44y")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_xcjg8")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Login" parent="." instance=ExtResource("4_c4kig")]
+layout_mode = 1
+
+[node name="Server" parent="." instance=ExtResource("5_fde8w")]
+layout_mode = 1
+
+[node name="Role" parent="." instance=ExtResource("5_pan11")]
+layout_mode = 1
+
+[node name="Loading" parent="." instance=ExtResource("6_08m3p")]
+visible = false
+layout_mode = 1
+
+[node name="Dialog" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Message" type="Control" parent="Dialog"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Background" type="TextureRect" parent="Dialog/Message"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 21.0
+offset_right = 111.0
+offset_bottom = 75.0
+grow_horizontal = 2
+texture = ExtResource("7_jv0ps")
+
+[node name="Content" type="Label" parent="Dialog/Message/Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -8.5
+offset_right = 42.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("8_npw82")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="submit_button_pressed" from="Login" to="." method="_on_login_submit_button_pressed"]
+[connection signal="item_pressed" from="Server" to="." method="_on_server_item_pressed"]
+[connection signal="return_button_pressed" from="Role" to="." method="_on_roles_return_button_pressed"]
+[connection signal="start_button_pressed" from="Role" to="." method="_on_roles_start_button_pressed"]
